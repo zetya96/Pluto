@@ -22,8 +22,4 @@ public class Course {
 
     @ManyToOne
     private Room room;
-
-    public Integer getId() {
-        return id;
-    }
 }

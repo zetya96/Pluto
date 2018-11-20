@@ -44,7 +44,6 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
       //  user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(User.Role.ROLE_STUDENT);
         return ResponseEntity.ok(userRepository.save(user));
     }
 }

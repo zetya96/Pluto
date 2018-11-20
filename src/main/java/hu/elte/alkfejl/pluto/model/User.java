@@ -22,34 +22,11 @@ public class User {
 
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    public enum Role {
-        ROLE_GUEST, ROLE_STUDENT, ROLE_TEACHER
-    }
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.REMOVE)
-    @JsonIgnore
-    private List<Course> courses;
+    private List<Course> courses_T; // amikor ő tart
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    @ManyToMany(mappedBy = "students", cascade = CascadeType.REMOVE)
+    private List<Course> courses_S; // amikre ő jelentkezett
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public Role getRole() {
-        return role;
-    }
 }
