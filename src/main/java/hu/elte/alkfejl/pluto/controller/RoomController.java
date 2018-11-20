@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/rooms")
-@Secured({ "ROLE_USER" })
+//@Secured({ "ROLE_USER" })
 public class RoomController {
 
     @Autowired
