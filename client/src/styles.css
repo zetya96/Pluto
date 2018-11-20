@@ -1,0 +1,22 @@
+*{margin: 0; padding: 0; border: 0; outline: 0;}
+
+.head {
+  background-color: rgb(91, 122, 255);
+
+  width: 100%;
+
+  padding: 10px 10px 10px 10px;
+}
+.head h1 {
+  font-size:50px;
+}
+.head h2 {
+  font-size: 12px;
+
+  font-style: italic;
+}
+body {
+  background-color: #d7e2ff;
+
+}
+

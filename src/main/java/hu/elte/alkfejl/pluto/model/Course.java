@@ -20,6 +20,6 @@ public class Course {
     @ManyToMany
     private List<User> students;
 
-    @ManyToOne
-    private Room room;
+   // @ManyToOne
+   // private Room room;
 }

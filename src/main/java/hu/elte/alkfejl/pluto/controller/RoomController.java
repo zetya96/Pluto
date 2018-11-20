@@ -39,6 +39,8 @@ public class RoomController {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
         return ResponseEntity.ok(roomRepository.save(room));
+
+
     }
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Integer id) {

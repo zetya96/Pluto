@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Entity
 public class Room {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer id;
 
-    private String name;
+    public String name;
 }
