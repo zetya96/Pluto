@@ -12,13 +12,14 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/rooms")
-//@Secured({ "ROLE_USER" })
+@Secured({ "ROLE_GUEST","ROLE_ADMIN" })
 public class RoomController {
 
     @Autowired
     private RoomRepository roomRepository;
 
     @GetMapping("")
+
     public Iterable<Room> getAll() {
         return roomRepository.findAll();
     }

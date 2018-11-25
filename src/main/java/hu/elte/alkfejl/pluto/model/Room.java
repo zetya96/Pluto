@@ -12,4 +12,8 @@ public class Room {
     public Integer id;
 
     public String name;
+
+    public Integer getId() {
+        return id;
+    }
 }
