@@ -1,0 +1,13 @@
+<div class="MainPage">
+  Üdvözöllek!
+
+
+  <div *ngIf="!authService.isLoggedIn" class="unauthorized">
+    <a routerLink="/login">Jelentkezz be</a> vagy <a routerLink="/register">Regisztrálj!</a>
+  </div>
+
+  <div *ngIf="authService.isLoggedIn" class="authorized">
+    Be vagy lépve!
+  </div>
+  
+</div>

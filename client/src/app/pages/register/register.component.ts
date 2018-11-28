@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    fullname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
   });
 
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
-    this.authService.register(new User(this.username.value, this.password.value, this.email.value))
+    this.authService.register(new User(this.username.value, this.password.value,this.fullname.value, this.email.value))
       .subscribe(
         res => this.router.navigate(['../']),
         err => {
@@ -46,5 +47,8 @@ export class RegisterComponent implements OnInit {
 
   get email(): AbstractControl {
     return this.registerForm.get('email');
+  }
+  get fullname() : AbstractControl {
+    return this.registerForm.get('fullname');
   }
 }

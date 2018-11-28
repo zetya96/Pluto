@@ -3,6 +3,10 @@
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
+.left-side h1 {
+  font-size:50px;
+}
+
 mat-toolbar {
   justify-content: flex-end;
 }

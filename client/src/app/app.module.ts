@@ -5,17 +5,20 @@ import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpModule} from "@angular/http";
+import {HTTP_INTERCEPTORS,HttpClientModule} from '@angular/common/http';
+
 import {MaterialItemsModule} from "./MaterialItemsModule";
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 import { AuthService } from "./services/auth.service";
+import { AuthInterceptor } from './http-interceptor'
 import { MenuComponent } from './components/menu/menu.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { CourseService} from './services/course.service';
 import { ErrorComponent } from './pages/error/error.component'
 import { appRoutes } from "./routes";
+import { MainPageComponent } from './pages/main-page/main-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,18 +26,25 @@ import { appRoutes } from "./routes";
     RegisterComponent,
     MenuComponent,
     RoomsComponent,
-    ErrorComponent
+    ErrorComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     MaterialItemsModule
   ],
-  providers: [AuthService, CourseService],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+    ,AuthService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

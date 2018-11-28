@@ -1,9 +1,9 @@
 export class Routes {
-  static LOGIN: String = 'user/login';
+  static LOGIN: String = 'users/login';
   static REGISTER: String = 'users';
   static COURSE: String = 'courses';
   static ROOM: String = 'rooms';
-  static LOGOUT: String = 'user/logout';
+  static LOGOUT: String = 'users/logout';
 }
 
 export class Server {

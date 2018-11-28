@@ -17,7 +17,9 @@ export class MenuComponent implements OnInit {
     {link: '/rooms', title: 'Rooms'}
   ];
 
-  menus: MenuItem[];
+  menus: MenuItem[] = [
+    {link: '/createcourse' ,title:'Kurzus létrehozása'}
+  ]
 
   constructor(private authService: AuthService, private router: Router) {
   }

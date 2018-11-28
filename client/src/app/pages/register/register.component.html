@@ -9,7 +9,14 @@
         </mat-error>
       </mat-form-field>
     </div>
-
+    <div class="form-control">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Teljes név" formControlName="fullname">
+          <mat-error *ngIf="fullname.hasError('required')">
+            Teljes név <strong>kötelező</strong>
+          </mat-error>
+        </mat-form-field>
+    </div>
     <div class="form-control">
       <mat-form-field class="example-full-width">
         <input matInput placeholder="Jelszó" formControlName="password" type="password">

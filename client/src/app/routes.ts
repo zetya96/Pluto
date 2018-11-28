@@ -1,15 +1,14 @@
 import {Routes} from '@angular/router';
 import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
-import {RoomsComponent} from './components/rooms/rooms.component';
-import {ErrorComponent} from "./pages/error/error.component";
+import {MainPageComponent} from "./pages/main-page/main-page.component";
 
 
 export const appRoutes: Routes = [
   {
     path: '',
     children: [
-      //{path: '', redirectTo: 'rooms', pathMatch: 'full'},
+      {path: '', component: MainPageComponent},
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
     ]
