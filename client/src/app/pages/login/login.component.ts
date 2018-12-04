@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
         res => this.router.navigate(['../']),
-        err => console.log(err))
+        err => alert("Hiba!"))
   }
 
   get username(): AbstractControl {

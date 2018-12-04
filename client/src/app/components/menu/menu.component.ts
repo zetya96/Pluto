@@ -13,11 +13,10 @@ interface MenuItem {
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  private common: MenuItem[] = [
-    {link: '/rooms', title: 'Rooms'}
-  ];
+ 
 
   menus: MenuItem[] = [
+    {link: '/courses' ,title:'Kurzusok'},
     {link: '/createcourse' ,title:'Kurzus létrehozása'}
   ]
 
@@ -26,10 +25,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {  }
   logout() {
-    this.authService.logout().subscribe(
-      res => this.router.navigate(['/login']),
-      err => err
-    );
+    this.authService.logout();
+    this.router.navigate['login'];
   }
 
 }

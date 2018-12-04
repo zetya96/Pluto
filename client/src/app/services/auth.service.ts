@@ -7,14 +7,16 @@ import {Routes, Server} from "../utils/ServerRoutes";
 export class AuthService {
 
   user : User;
-  isLoggedIn: boolean = false;
-  basicheader: String;
+  isLoggedIn: boolean = true;
+  basicheader: String = "WmV0eWE6U2FqdA==";
+
   constructor(private http: HttpClient) {
     this.user = new User();
   }
 
   login(user: User) {
     this.basicheader = btoa(user.username+":"+user.password);
+    console.log(this.basicheader);
     return this.http.post<User>(Server.routeTo(Routes.LOGIN), user)
       .map(res => {
         this.isLoggedIn = true;
@@ -29,12 +31,11 @@ export class AuthService {
         
       })
   }
-
   logout() {
-    return this.http.get(Server.routeTo(Routes.LOGOUT))
-      .map(res => {
-        this.user = new User();
-        this.isLoggedIn = false;
-      })
+    this.user = null;
+    this.isLoggedIn = false;
+    this.basicheader = "";
   }
+
+
 }
