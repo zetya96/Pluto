@@ -22,7 +22,6 @@ export class CoursesComponent implements OnInit {
   private async getCourses() {
   
     this.courses = await this.courseService.getCourses();
-    
 
   
   }

@@ -20,6 +20,7 @@ import { appRoutes } from "./routes";
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { CourseComponent } from './pages/course/course.component';
+import { UserComponent } from './pages/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { CourseComponent } from './pages/course/course.component';
     ErrorComponent,
     MainPageComponent,
     CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

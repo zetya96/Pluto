@@ -7,8 +7,8 @@ import {Routes, Server} from "../utils/ServerRoutes";
 export class AuthService {
 
   user : User;
-  isLoggedIn: boolean = true;
-  basicheader: String = "WmV0eWE6U2FqdA==";
+  isLoggedIn: boolean = false;
+  basicheader: String = "";
 
   constructor(private http: HttpClient) {
     this.user = new User();

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.springframework.http.ResponseEntity;
 
 import javax.persistence.*;
 import java.util.List;
@@ -33,6 +34,7 @@ public class User {
 
 
     @ManyToMany(mappedBy = "students", cascade = CascadeType.REMOVE)
+    @JsonIgnore
     private List<Course> courses_S; // amikre ő jelentkezett
 
 
@@ -41,6 +43,10 @@ public class User {
 
     public void setUserRole() {
         this.role = Role.ROLE_USER;
+    }
+
+    public List<Course> getCourses_S() {
+        return courses_S;
     }
 
     public enum Role {

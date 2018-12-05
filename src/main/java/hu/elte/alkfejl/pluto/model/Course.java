@@ -1,6 +1,7 @@
 package hu.elte.alkfejl.pluto.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
@@ -22,7 +23,7 @@ public class Course {
     private User teacher;
 
     @ManyToMany
-    @JsonIgnoreProperties(value="courses_S")
+    @JsonIgnore
     private List<User> students;
 
     @ManyToOne
@@ -49,5 +50,9 @@ public class Course {
 
     public void setRoom(Room room) {
         this.room = room;
+    }
+
+    public User getTeacher() {
+        return teacher;
     }
 }

@@ -39,31 +39,35 @@ public class CourseController {
     @GetMapping("/{id}")
 
     public ResponseEntity<Course> get(@PathVariable Integer id) {
-        Optional<Course> playlist = courseRepository.findById(id);
-        if (playlist.isPresent()) {
-            return ResponseEntity.ok(playlist.get());
+        Optional<Course> course = courseRepository.findById(id);
+        if (course.isPresent()) {
+            return ResponseEntity.ok(course.get());
         } else {
             return ResponseEntity.notFound().build();
         }
     }
     @PostMapping("/{id}")
-    public ResponseEntity<List<User>> addUser(@PathVariable Integer id) {
+    public ResponseEntity<String> addUser(@PathVariable Integer id) {
         Optional<Course> oCourse = courseRepository.findById(id);
         if(!oCourse.isPresent()) {
+            System.out.print("No such course");
             return ResponseEntity.notFound().build();
         }
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userRepository.findByUsername(currentPrincipalName).get();
 
-
+        User user = GetAuthenticatedUser();
         Course course = oCourse.get();
-
+        if(course.getStudents().contains(user) || course.getTeacher() == user) {
+            System.out.print("already joined");
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .body("Már jelentkeztél!");
+        }
+        System.out.print("joined");
         course.getStudents().add(user);
 
         courseRepository.save(course);
-        return ResponseEntity.ok(course.getStudents());
+        return ResponseEntity.ok().build();
 
     }
     @PostMapping("")
@@ -74,9 +78,8 @@ public class CourseController {
         }
 
         //Teacher regisztrálása (éppen belépett felhasználó
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        User user = userRepository.findByUsername(currentPrincipalName).get();
+
+        User user = GetAuthenticatedUser();
         course.setTeacher(user);
 
         //Szoba regisztrálása (ID alapján)
@@ -97,5 +100,15 @@ public class CourseController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+    @GetMapping("/mycourses")
+    public ResponseEntity<List<Course>> getMyCourses() {
+        User user = GetAuthenticatedUser();
+        return ResponseEntity.ok(user.getCourses_S());
+    }
+    private User GetAuthenticatedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        return userRepository.findByUsername(currentPrincipalName).get();
     }
 }
