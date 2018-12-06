@@ -17,7 +17,7 @@
     </div>
 
     <div *ngIf="authService.isLoggedIn" class="authorized">
-      <button mat-button disabled="true" style="color: black">Hello, {{authService.user.username}}</button>
+      <button mat-button disabled="true" style="color: black">Hello, {{authService.user.fullname}}</button>
       <button mat-button (click)="logout()">Kilépés</button>
     </div>
   </div>

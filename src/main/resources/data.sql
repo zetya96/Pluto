@@ -16,3 +16,4 @@ insert into course (id, date, name, room_id, teacher_id) values (2, 'Holnap 16:0
 
 
 
+

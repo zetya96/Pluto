@@ -5,6 +5,8 @@ import {MainPageComponent} from "./pages/main-page/main-page.component";
 import {CoursesComponent} from "./pages/courses/courses.component";
 import {CourseComponent} from "./pages/course/course.component";
 import {UserComponent} from "./pages/user/user.component";
+import { UserlistComponent } from './pages/userlist/userlist.component';
+import { CreateCourseComponent } from './pages/create-course/create-course.component';
 export const appRoutes: Routes = [
   {
     path: '',
@@ -14,6 +16,8 @@ export const appRoutes: Routes = [
       {path: 'register', component: RegisterComponent},
       {path: 'courses', component: CoursesComponent},
       {path: 'course/:id', component: CourseComponent},
-      {path: 'user/:id', component: UserComponent}
+      {path: 'user/:id', component: UserComponent},
+      {path: 'users', component: UserlistComponent},
+      {path: 'createcourse',component: CreateCourseComponent}
     ]
   }];

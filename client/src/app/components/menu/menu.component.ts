@@ -17,7 +17,8 @@ export class MenuComponent implements OnInit {
 
   menus: MenuItem[] = [
     {link: '/courses' ,title:'Kurzusok'},
-    {link: '/createcourse' ,title:'Kurzus létrehozása'}
+    {link: '/createcourse' ,title:'Kurzus létrehozása'},
+    {link: 'users',title:'Felhasználók'}
   ]
 
   constructor(private authService: AuthService, private router: Router) {

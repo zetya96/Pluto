@@ -26,8 +26,12 @@ export class LoginComponent implements OnInit {
   submit() {
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
-        res => this.router.navigate(['../']),
-        err => alert("Hiba!"))
+        res => {},
+        err => alert("Hiba!"));
+
+        this.authService.getJoinedCourses().subscribe(
+          res => this.router.navigate(['../']));
+         
   }
 
   get username(): AbstractControl {

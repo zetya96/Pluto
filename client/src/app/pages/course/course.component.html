@@ -14,7 +14,7 @@
               <li>Tanár: <a [routerLink]="'../../user/' + course.teacher.id">{{course.teacher.fullname}}</a></li>
           </ul>
 
-          <button mat-raised-button class="mat-primary" (click)="Join()" >Jelentkezés a kurzusra</button>
+          <button [disabled]="alreadyJoined" mat-raised-button class="mat-primary" (click)="Join()" >Jelentkezés a kurzusra</button>
 
       </div>
   

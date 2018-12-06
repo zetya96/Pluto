@@ -1,0 +1,16 @@
+<div *ngIf="!auth.isLoggedIn">
+    Nem vagy belépve!
+    </div>
+  
+  
+  <div *ngIf="auth.isLoggedIn">
+  
+    <h1>Felhasználók</h1>
+      <ul>
+          <li *ngFor="let user of users">
+              <a [routerLink]="'/user/' + user.id">{{ user.fullname }}</a>
+              
+          </li>
+        </ul>
+  
+  </div>

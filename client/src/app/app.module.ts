@@ -21,6 +21,8 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CoursesComponent } from './pages/courses/courses.component';
 import { CourseComponent } from './pages/course/course.component';
 import { UserComponent } from './pages/user/user.component';
+import { UserlistComponent } from './pages/userlist/userlist.component';
+import { CreateCourseComponent } from './pages/create-course/create-course.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,9 @@ import { UserComponent } from './pages/user/user.component';
     MainPageComponent,
     CoursesComponent,
     CourseComponent,
-    UserComponent
+    UserComponent,
+    UserlistComponent,
+    CreateCourseComponent
   ],
   imports: [
     BrowserModule,

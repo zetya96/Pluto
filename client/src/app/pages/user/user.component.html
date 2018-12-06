@@ -5,8 +5,13 @@
   
   <div *ngIf="auth.isLoggedIn">
   
-      <p>
-          user  ID: {{id}}
-        </p>
-  
+    <h1>Felhasználó adatlap - {{this.user.fullname}}</h1>
+    Email: <a href="mailto:{{this.user.email}}">{{this.user.email}}</a>
+
+    <h2>Oktatott kurzusok:</h2>
+    <ul>
+        <li *ngFor="let course of user.courses_T">
+                <a [routerLink]="'/course/' + course.id">{{ course.name }}</a>
+        </li>
+    </ul>
   </div>
