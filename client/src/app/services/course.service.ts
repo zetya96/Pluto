@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {Course} from '../model/Course';
 import "rxjs/add/operator/map";
 import { User } from '../model/User';
+import { Room } from '../model/Room';
 
 @Injectable()
 export class CourseService {
@@ -22,8 +23,12 @@ export class CourseService {
     .then(course => { return course });
   }
  
-  CreateCourse(course: Course): Observable<Course>{
-    return this.http.post<Course>(Server.routeTo(Routes.COURSES), course)
+  CreateCourse(name:string,roomId:number,date:string): Observable<Course>{
+    var fd = new FormData();
+    fd.append('name', name);
+    fd.append('roomId',roomId.toString());
+    fd.append('date',date);
+    return this.http.post<Course>(Server.routeTo(Routes.COURSES),fd)
       .map(res => res);
 }
 
@@ -32,7 +37,10 @@ JoinCourse(index: number):Observable<string> {
   return this.http.post<string>(Server.routeTo(Routes.COURSES+"/"+index), index)
   .map(res => res);
 }
-
+DiscardCourse(index:number) {
+  return this.http.put<Course[]>(Server.routeTo(Routes.COURSES+"/"+index), index)
+  .map(res => res);
+}
 
 getUser(id: number): Promise<User> {
   return this.http.get<User>(Server.routeTo(Routes.USERS) + "/"+id )
@@ -43,6 +51,13 @@ getUsers(): Promise<User[]> {
     return this.http.get<User[]>(Server.routeTo(Routes.USERS))
     .toPromise()
     .then(user => { return user });
+}
+
+
+getRooms(): Promise<Room[]> {
+  return this.http.get<Room[]>(Server.routeTo(Routes.ROOM))
+    .toPromise()
+    .then(room => { return room });
 }
  
 }

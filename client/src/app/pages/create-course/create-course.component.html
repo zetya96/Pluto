@@ -8,20 +8,25 @@
           <h1>Kurzus létrehozása</h1>
 
           <form [formGroup]="courseForm" novalidate>
+
+              <div class="form-control">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Kurzus neve (kötelező)" formControlName="cname" >
+                  </mat-form-field>
+                </div>
               <div class="form-control">
                 <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Kurzus neve" formControlName="name">
-                  <mat-error *ngIf="name.hasError('required')">
-                    Név <strong>kötelező</strong>
-                  </mat-error>
+                  <input matInput placeholder="Dátum (kötelező)" formControlName="date" >
                 </mat-form-field>
               </div>
-          
               <div class="form-control">
-                <mat-form-field class="example-full-width">
-                  <input matInput placeholder="Dátum" formControlName="date" >
-                </mat-form-field>
+                  <mat-select placeholder="Terem" formControlName="room">
+                      <mat-option *ngFor="let room of rooms" [value]="room.id">
+                        {{room.name}}
+                      </mat-option>
+                  </mat-select>
               </div>
+             
               <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!courseForm.valid">Létrehozás</button>
           
             </form>

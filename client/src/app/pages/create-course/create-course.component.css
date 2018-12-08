@@ -1,0 +1,10 @@
+.mat-input-container {
+    width:25%;
+}
+.form-control {
+    height:100px;
+}
+
+.mat-select-trigger { 
+    width: 25%; 
+}

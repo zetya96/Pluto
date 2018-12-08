@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
+import {AuthService} from "../services/auth.service";
 import {NavigationEnd, Router} from "@angular/router";
 
 interface MenuItem {
@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
  
 
   menus: MenuItem[] = [
+    {link: '/me', title:'Saját profil'},
     {link: '/courses' ,title:'Kurzusok'},
     {link: '/createcourse' ,title:'Kurzus létrehozása'},
     {link: 'users',title:'Felhasználók'}

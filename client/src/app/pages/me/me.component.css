@@ -1,0 +1,10 @@
+.oszlopok {
+    width:100%;
+    display:inline-flex;
+}
+.bal {
+    width:50%;
+}
+.jobb {
+    width:25%;
+}

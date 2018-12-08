@@ -3,7 +3,7 @@
     </div>
   
   
-  <div *ngIf="auth.isLoggedIn">
+  <div *ngIf="auth.isLoggedIn && user">
   
     <h1>Felhasználó adatlap - {{this.user.fullname}}</h1>
     Email: <a href="mailto:{{this.user.email}}">{{this.user.email}}</a>

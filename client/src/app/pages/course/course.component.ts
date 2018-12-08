@@ -26,7 +26,13 @@ export class CourseComponent implements OnInit {
     console.log("current course name: " + this.course.name);
     console.log(this.auth.user);
     this.auth.user.courses_S.forEach(course => {
-      console.log("course " + course.name);
+      if(course.name == this.course.name) {
+        this.alreadyJoined = true;
+      }
+    });
+
+    this.auth.user.courses_T.forEach(course => {
+
       if(course.name == this.course.name) {
         this.alreadyJoined = true;
       }

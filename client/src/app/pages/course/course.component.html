@@ -3,19 +3,19 @@
     </div>
   
   
-  <div *ngIf="auth.isLoggedIn">
+  <div *ngIf="auth.isLoggedIn && course">
   
-          <h1>{{course.name}}</h1>
- 
-      <div class="course-data">
-          <ul>
-              <li>Dátum: {{course.date}}</li>
-              <li>Hely: {{course.room.name}}</li>
-              <li>Tanár: <a [routerLink]="'../../user/' + course.teacher.id">{{course.teacher.fullname}}</a></li>
-          </ul>
-
-          <button [disabled]="alreadyJoined" mat-raised-button class="mat-primary" (click)="Join()" >Jelentkezés a kurzusra</button>
-
-      </div>
+        <h1>{{course.name}}</h1>
+        <div class="course-data">
+            <ul>
+                <li>Dátum: {{course.date}}</li>
+                <li>Hely: {{course.room.name}}</li>
+                <li>Tanár: <a [routerLink]="'../../user/' + course.teacher.id">{{course.teacher.fullname}}</a></li>
+            </ul>
+            Jelentkezettek száma: {{course.studentNumber}}
+            <p>
+                <button [disabled]="alreadyJoined" mat-raised-button class="mat-primary" (click)="Join()" >Jelentkezés a kurzusra</button>
+            </p>
+        </div>
   
   </div>

@@ -1,0 +1,32 @@
+<div *ngIf="!auth.isLoggedIn">
+    Nem vagy belépve!
+    </div>
+  
+  
+  <div *ngIf="auth.isLoggedIn">
+  
+      <h1>Felhasználó adatlap - {{this.user.fullname}}</h1>
+      <p>
+      Email: <a href="mailto:{{this.user.email}}">{{this.user.email}}</a>
+</p>
+  <div class="oszlopok">
+    <div class="bal">
+        <h2>Oktatott kurzusok:</h2>
+        <ul>
+            <li *ngFor="let course of user.courses_T">
+                    <a [routerLink]="'/course/' + course.id">{{ course.name }}</a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="jobb">
+        <h2>Felvett kurzusok:</h2>
+        <ul>
+            <li style="height:50px;"*ngFor="let course of user.courses_S">
+                    <a [routerLink]="'/course/' + course.id">{{ course.name }}</a> - <button mat-raised-button class="mat-primary" style="float:right" (click)="Discard(course.id)" >Leadás</button>
+        
+            </li>
+        </ul>
+    </div>
+  </div>
+  </div>

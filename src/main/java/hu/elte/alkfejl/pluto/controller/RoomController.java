@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/rooms")
-@Secured({ "ROLE_GUEST","ROLE_ADMIN" })
+@Secured({ "ROLE_USER","ROLE_ADMIN" })
 public class RoomController {
 
     @Autowired
@@ -35,6 +35,7 @@ public class RoomController {
     }
 
     @PostMapping
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity<Room> create(@RequestBody Room room) {
         if (room.getId() != null && roomRepository.existsById(room.getId())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -44,6 +45,7 @@ public class RoomController {
 
     }
     @DeleteMapping("/{id}")
+    @Secured({"ROLE_ADMIN"})
     public ResponseEntity delete(@PathVariable Integer id) {
         Optional<Room> oSong = roomRepository.findById(id);
         if (oSong.isPresent()) {

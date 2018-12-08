@@ -26,6 +26,10 @@ public class Course {
     @JsonIgnore
     private List<User> students;
 
+
+    @Transient
+    private int studentNumber;
+
     @ManyToOne
     private Room room;
 
@@ -54,5 +58,9 @@ public class Course {
 
     public User getTeacher() {
         return teacher;
+    }
+
+    public void SetNumber() {
+        this.studentNumber = students.size();
     }
 }

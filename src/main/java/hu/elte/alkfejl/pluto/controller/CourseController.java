@@ -39,8 +39,10 @@ public class CourseController {
     @GetMapping("/{id}")
 
     public ResponseEntity<Course> get(@PathVariable Integer id) {
+
         Optional<Course> course = courseRepository.findById(id);
         if (course.isPresent()) {
+            course.get().SetNumber();
             return ResponseEntity.ok(course.get());
         } else {
             return ResponseEntity.notFound().build();
@@ -70,6 +72,25 @@ public class CourseController {
         return ResponseEntity.ok().build();
 
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<List<Course>> removeUser(@PathVariable Integer id) {
+        Optional<Course> oCourse = courseRepository.findById(id);
+        if(!oCourse.isPresent()) {
+            System.out.print("No such course");
+            return ResponseEntity.notFound().build();
+        }
+
+        User user = GetAuthenticatedUser();
+        Course course = oCourse.get();
+        System.out.print("removed");
+        course.getStudents().remove(user);
+
+        courseRepository.save(course);
+        return ResponseEntity.ok(user.getCourses_S());
+
+    }
+
     @PostMapping("")
     public ResponseEntity<Course> create(@RequestParam String name, @RequestParam int roomId, @RequestParam String date ) {
         Course course = new Course(name,date);
@@ -88,6 +109,7 @@ public class CourseController {
             return ResponseEntity.notFound().build();
         }
         course.setRoom(oRoom.get());
+        System.out.print("course created: " + name);
         return ResponseEntity.ok(courseRepository.save(course));
     }
 

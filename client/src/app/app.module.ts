@@ -13,9 +13,9 @@ import { RegisterComponent } from './pages/register/register.component';
 
 import { AuthService } from "./services/auth.service";
 import { AuthInterceptor } from './http-interceptor'
-import { MenuComponent } from './components/menu/menu.component';
+import { MenuComponent } from './menu/menu.component';
 import { CourseService} from './services/course.service';
-import { ErrorComponent } from './pages/error/error.component'
+
 import { appRoutes } from "./routes";
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { CoursesComponent } from './pages/courses/courses.component';
@@ -23,19 +23,20 @@ import { CourseComponent } from './pages/course/course.component';
 import { UserComponent } from './pages/user/user.component';
 import { UserlistComponent } from './pages/userlist/userlist.component';
 import { CreateCourseComponent } from './pages/create-course/create-course.component';
+import { MeComponent } from './pages/me/me.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     MenuComponent,
-    ErrorComponent,
     MainPageComponent,
     CoursesComponent,
     CourseComponent,
     UserComponent,
     UserlistComponent,
-    CreateCourseComponent
+    CreateCourseComponent,
+    MeComponent
   ],
   imports: [
     BrowserModule,

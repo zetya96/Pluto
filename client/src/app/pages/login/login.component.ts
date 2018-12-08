@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         err => alert("Hiba!"));
 
         this.authService.getJoinedCourses().subscribe(
-          res => this.router.navigate(['../']));
+          res => this.router.navigate(['../me']));
          
   }
 

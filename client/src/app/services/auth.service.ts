@@ -41,9 +41,7 @@ export class AuthService {
       })
   }
   logout() {
-    this.user = null;
-    this.isLoggedIn = false;
-    this.basicheader = "";
+    window.location.href = '';
   }
 
 
