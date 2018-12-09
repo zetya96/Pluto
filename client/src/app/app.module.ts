@@ -13,8 +13,8 @@ import { RegisterComponent } from './pages/register/register.component';
 
 import { AuthService } from "./services/auth.service";
 import { AuthInterceptor } from './http-interceptor'
-import { MenuComponent } from './menu/menu.component';
-import { CourseService} from './services/course.service';
+import { MenuComponent } from './components/menu/menu.component';
+import { HTTPService} from './services/HTTPService.service';
 
 import { appRoutes } from "./routes";
 import { MainPageComponent } from './pages/main-page/main-page.component';
@@ -24,6 +24,7 @@ import { UserComponent } from './pages/user/user.component';
 import { UserlistComponent } from './pages/userlist/userlist.component';
 import { CreateCourseComponent } from './pages/create-course/create-course.component';
 import { MeComponent } from './pages/me/me.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { MeComponent } from './pages/me/me.component';
     UserComponent,
     UserlistComponent,
     CreateCourseComponent,
-    MeComponent
+    MeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ import { MeComponent } from './pages/me/me.component';
       useClass: AuthInterceptor,
       multi: true
     }
-    ,AuthService, CourseService],
+    ,AuthService, HTTPService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

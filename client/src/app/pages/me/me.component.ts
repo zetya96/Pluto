@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../model/User';
 import { AuthService } from '../../services/auth.service';
-import { CourseService } from '../../services/course.service';
+import { HTTPService } from '../../services/HTTPService.service';
 
 @Component({
   selector: 'app-me',
@@ -10,7 +10,7 @@ import { CourseService } from '../../services/course.service';
 })
 export class MeComponent implements OnInit {
   user: User;
-  constructor(private auth: AuthService,private courseService: CourseService) { }
+  constructor(private auth: AuthService,private courseService: HTTPService) { }
 
   ngOnInit() {
     if(!this.auth.isLoggedIn) return;

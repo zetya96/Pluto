@@ -1,0 +1,14 @@
+.footer {
+    position:fixed;
+    bottom:0px;
+    width: 100%;
+    height:40px;
+    background: linear-gradient(to bottom, #f5ffe2 0%, #000066 30%)
+}
+
+.center {
+    text-align:center;
+    height:100%;
+    line-height: 40px;
+    color:white;
+}

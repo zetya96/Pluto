@@ -1,0 +1,32 @@
+#top-menu {
+  position: fixed;
+  top:0px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  background:linear-gradient(to top, #f5ffe2 -92%, #000066 70%);
+  transition: 0.5s;
+  height:55px;
+
+}
+#top-menu:hover {
+  height:64px;
+
+}
+.left-side h1 {
+  font-size:50px;
+  height:90%;
+  vertical-align: middle;
+}
+h1 {
+  background:linear-gradient(to left bottom, #fff4e2 25%, #ffa1a1b3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height:50px;
+}
+mat-toolbar {
+  justify-content: flex-end;
+}
+
+.center {
+  flex: 1 1 auto;
+}

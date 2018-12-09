@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {User} from "../model/User";
 import {Routes, Server} from "../utils/ServerRoutes";
 import { Course } from '../model/Course';
+import { RouterLink, Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
@@ -11,7 +12,7 @@ export class AuthService {
   isLoggedIn: boolean = false;
   //basicheader: String = "WmV0eWE6U2FqdA==";
   basicheader: String = "";
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
     this.user = new User();
   }
 
@@ -30,7 +31,7 @@ export class AuthService {
     return this.http.get<Course[]>(Server.routeTo(Routes.COURSES+"/mycourses"))
       .map(res => {
         this.user.courses_S = res;
-        console.log("AFTER JOINED COURSES: " +this.user);
+        
         return this.user;
       })
   }
@@ -42,7 +43,12 @@ export class AuthService {
       })
   }
   logout() {
-    window.location.href = '';
+    this.user = new User();
+    this.isLoggedIn = false;
+    this.basicheader = "";
+    this.router.navigate(['/login']);
+    console.log("LOGGED OUT");
+    //window.location.href = '';
   }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../../model/Course';
-import { CourseService } from '../../services/course.service';
+import { HTTPService } from '../../services/HTTPService.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth.service';
 export class CourseComponent implements OnInit {
   course: Course;
   alreadyJoined: boolean = false;
-  constructor(private auth: AuthService, private route: ActivatedRoute,private courseService: CourseService) { }
+  constructor(private auth: AuthService, private route: ActivatedRoute,private courseService: HTTPService) { }
 
   ngOnInit() {
     
@@ -45,6 +45,7 @@ export class CourseComponent implements OnInit {
       res =>{
        
         this.auth.user.courses_S.push(this.course);
+        this.course.studentNumber++;
         this.alreadyJoined = true;
         alert("A jelentkezés megtörtént!");
 

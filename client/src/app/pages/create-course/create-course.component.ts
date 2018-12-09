@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import {AbstractControl, FormControl, FormGroup, Validators} from '@angular/forms';
 import { Room } from '../../model/Room';
-import { CourseService } from '../../services/course.service';
+import { HTTPService } from '../../services/HTTPService.service';
 import { RouterLink, Router } from '@angular/router';
 
 @Component({
@@ -22,7 +22,7 @@ export class CreateCourseComponent implements OnInit {
 
   });
   rooms: Room[];
-  constructor(private auth: AuthService,private courseService: CourseService, private router: Router) { }
+  constructor(private auth: AuthService,private courseService: HTTPService, private router: Router) { }
 
   ngOnInit() {
     this.getRooms();

@@ -8,7 +8,7 @@ import { User } from '../model/User';
 import { Room } from '../model/Room';
 
 @Injectable()
-export class CourseService {
+export class HTTPService {
 
   constructor(private http: HttpClient) { }
 

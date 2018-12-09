@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../model/User';
 import { ActivatedRoute } from '@angular/router';
-import { CourseService } from '../../services/course.service';
+import { HTTPService } from '../../services/HTTPService.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class UserComponent implements OnInit {
   user:User;
-  constructor(private auth: AuthService, private route: ActivatedRoute,private courseService: CourseService) { }
+  constructor(private auth: AuthService, private route: ActivatedRoute,private courseService: HTTPService) { }
 
   ngOnInit() {
     
