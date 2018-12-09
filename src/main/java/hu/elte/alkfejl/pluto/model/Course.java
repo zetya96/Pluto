@@ -33,10 +33,12 @@ public class Course {
     @ManyToOne
     private Room room;
 
+    private String description;
     private String date;
-    public Course(String name,String date) {
+    public Course(String name,String date,String desc) {
         this.name = name;
         this.date = date;
+        this.description = desc;
     }
 
 

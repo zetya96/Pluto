@@ -15,6 +15,7 @@ export class CreateCourseComponent implements OnInit {
   courseForm: FormGroup = new FormGroup({
     cname: new FormControl('',[Validators.required]),
 
+    cdesc: new FormControl('', [Validators.required]),
     date: new FormControl('',[Validators.required]),
 
     room: new FormControl('',[Validators.required]),
@@ -35,7 +36,7 @@ export class CreateCourseComponent implements OnInit {
   submit() {
     console.log("submitting course..");
 
-    this.courseService.CreateCourse(this.name.value,this.room.value,this.date.value)
+    this.courseService.CreateCourse(this.name.value,this.desc.value,this.room.value,this.date.value)
     .subscribe(
       res => { 
         alert("Kurzus létrehozva!");
@@ -49,7 +50,9 @@ export class CreateCourseComponent implements OnInit {
   get name(): AbstractControl {
     return this.courseForm.get('cname');
   }
-
+  get desc() : AbstractControl {
+    return this.courseForm.get('cdesc');
+  }
   get date(): AbstractControl {
     return this.courseForm.get('date');
   }

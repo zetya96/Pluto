@@ -10,10 +10,17 @@
           <form [formGroup]="courseForm" novalidate>
 
               <div class="form-control">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Kurzus neve (kötelező)" formControlName="cname" >
-                  </mat-form-field>
-                </div>
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Kurzus neve (kötelező)" formControlName="cname" >
+                </mat-form-field>
+              </div>
+
+              <div class="form-control">
+                <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Kurzus leírása (kötelező)" formControlName="cdesc" >
+                </mat-form-field>
+              </div>
+              
               <div class="form-control">
                 <mat-form-field class="example-full-width">
                   <input matInput placeholder="Dátum (kötelező)" formControlName="date" >

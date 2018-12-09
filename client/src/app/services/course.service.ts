@@ -23,9 +23,10 @@ export class CourseService {
     .then(course => { return course });
   }
  
-  CreateCourse(name:string,roomId:number,date:string): Observable<Course>{
+  CreateCourse(name:string,desc:string, roomId:number,date:string): Observable<Course>{
     var fd = new FormData();
     fd.append('name', name);
+    fd.append('desc',desc);
     fd.append('roomId',roomId.toString());
     fd.append('date',date);
     return this.http.post<Course>(Server.routeTo(Routes.COURSES),fd)

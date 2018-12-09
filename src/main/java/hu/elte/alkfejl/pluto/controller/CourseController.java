@@ -92,8 +92,8 @@ public class CourseController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Course> create(@RequestParam String name, @RequestParam int roomId, @RequestParam String date ) {
-        Course course = new Course(name,date);
+    public ResponseEntity<Course> create(@RequestParam String name, @RequestParam int roomId, @RequestParam String date,@RequestParam String desc ) {
+        Course course = new Course(name,date,desc);
         if (course.getId() != null && courseRepository.existsById(course.getId())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }

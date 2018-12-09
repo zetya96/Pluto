@@ -26,11 +26,13 @@ export class LoginComponent implements OnInit {
   submit() {
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
-        res => {},
+        res => {
+          this.authService.getJoinedCourses().subscribe(
+            res => this.router.navigate(['../me']));
+        },
         err => alert("Hiba!"));
 
-        this.authService.getJoinedCourses().subscribe(
-          res => this.router.navigate(['../me']));
+   
          
   }
 

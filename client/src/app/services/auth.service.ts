@@ -22,6 +22,7 @@ export class AuthService {
       .map(res => {
         this.isLoggedIn = true;
         this.user = res;
+        console.log("LOGGED IN: " +this.user);
         return this.user;
       })
   }
@@ -29,7 +30,7 @@ export class AuthService {
     return this.http.get<Course[]>(Server.routeTo(Routes.COURSES+"/mycourses"))
       .map(res => {
         this.user.courses_S = res;
-        console.log(this.user);
+        console.log("AFTER JOINED COURSES: " +this.user);
         return this.user;
       })
   }
